@@ -1,0 +1,14 @@
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\DemoTest.Infrastructure.dll
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\DemoTest.Infrastructure.pdb
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\DemoTest.Core.dll
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\DemoTest.Core.pdb
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\obj\Debug\DemoTest.Infrastructure.csprojResolveAssemblyReference.cache
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\obj\Debug\DemoTest.Infrastructure.dll
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\obj\Debug\DemoTest.Infrastructure.pdb
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\DemoTest.Infrastructure.dll.config
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\EntityFramework.dll
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\EntityFrameworkExtras.EF6.dll
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\EntityFramework.xml
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+F:\Project Works\Test Project\DemoTest\DemoTest.Infrastructure\bin\Debug\EntityFrameworkExtras.EF6.pdb

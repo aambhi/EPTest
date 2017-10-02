@@ -1,0 +1,505 @@
+﻿@model DemoTest.Core.Model.Profile
+@{
+    ViewBag.Title = "Create";
+
+    var businessSegment = (List<DemoTest.Core.Model.BusinessSegment>)ViewBag.GetBusinessSegment;
+    var businessArea = (List<DemoTest.Core.Model.BusinessArea>)ViewBag.GetBusinessArea;
+
+}
+<script src="~/Content/js/jquery-1.12.1.min.js"></script>
+
+<div class="email-signup">
+    <center><h2>Submit Company Info:</h2></center>
+    <div class="form-group">
+        <input type="text" class="input-text full-width" id="txtCompanyName" placeholder="Company Name" maxlength="100">
+        <input type="text" class="input-text full-width" id="txtCompanyType" placeholder="Company Type (Ex. Pvt. Ltd., Individual, etc)" maxlength="100">
+    </div>
+    <div class="form-group">
+        <input type="text" class="input-text full-width" placeholder="Year of Foundation" id="txtYearofFoundation" maxlength="4">
+        <select class="full-width" required name="intrested" id="ddlNoofEmployee">
+            <option value="0">No. of Employees</option>
+            <option value="1">0-500</option>
+            <option value="2">500-1500</option>
+            <option value="3">1500-2500</option>
+            <option value="4">2500-5000</option>
+            <option value="5">above 5000</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select class="full-width" required name="intrested" id="ddlContinent">
+            <option>Select Your Continent</option>
+            <option value="paris">Asia</option>
+            <option value="madrid">Africa</option>
+            <option value="madrid">North America</option>
+            <option value="madrid">South America</option>
+            <option value="madrid">Antarctica</option>
+            <option value="madrid">Europe</option>
+            <option value="madrid">Australia</option>
+        </select>
+        <select class="full-width" required name="intrested" id="ddlCountry">
+            <option>Select Your Contry</option>
+            <option value="CRI">Costa Rica</option>
+            <option value="CIV">Côte d'Ivoire</option>
+            <option value="HRV">Croatia</option>
+            <option value="CUB">Cuba</option>
+            <option value="CUW">Curaçao</option>
+            <option value="CYP">Cyprus</option>
+            <option value="CZE">Czech Republic</option>
+            <option value="DNK">Denmark</option>
+            <option value="DJI">Djibouti</option>
+            <option value="DMA">Dominica</option>
+            <option value="DOM">Dominican Republic</option>
+            <option value="ECU">Ecuador</option>
+            <option value="EGY">Egypt</option>
+            <option value="SLV">El Salvador</option>
+            <option value="GNQ">Equatorial Guinea</option>
+            <option value="ERI">Eritrea</option>
+            <option value="EST">Estonia</option>
+            <option value="ETH">Ethiopia</option>
+            <option value="FLK">Falkland Islands (Malvinas)</option>
+            <option value="FRO">Faroe Islands</option>
+            <option value="FJI">Fiji</option>
+            <option value="FIN">Finland</option>
+            <option value="FRA">France</option>
+            <option value="GUF">French Guiana</option>
+            <option value="PYF">French Polynesia</option>
+            <option value="ATF">French Southern Territories</option>
+            <option value="GAB">Gabon</option>
+            <option value="GMB">Gambia</option>
+            <option value="GEO">Georgia</option>
+            <option value="DEU">Germany</option>
+            <option value="GHA">Ghana</option>
+            <option value="GIB">Gibraltar</option>
+            <option value="GRC">Greece</option>
+            <option value="GRL">Greenland</option>
+            <option value="GRD">Grenada</option>
+            <option value="GLP">Guadeloupe</option>
+            <option value="GUM">Guam</option>
+            <option value="GTM">Guatemala</option>
+            <option value="GGY">Guernsey</option>
+            <option value="GIN">Guinea</option>
+            <option value="GNB">Guinea-Bissau</option>
+            <option value="GUY">Guyana</option>
+            <option value="HTI">Haiti</option>
+            <option value="HMD">Heard Island and McDonald Islands</option>
+            <option value="VAT">Holy See (Vatican City State)</option>
+            <option value="HND">Honduras</option>
+            <option value="HKG">Hong Kong</option>
+            <option value="HUN">Hungary</option>
+            <option value="ISL">Iceland</option>
+            <option value="IND">India</option>
+            <option value="IDN">Indonesia</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" class="input-text full-width" id="txtAddress" placeholder="Address" maxlength="250" />
+        <input type="text" class="input-text full-width" id="txtPostalCode" placeholder="Postal Code" maxlength="10" />
+    </div>
+    <center><h2>Submit Contact Info:</h2></center>
+    <div class="form-group">
+        <input type="text" class="input-text full-width" id="txtFullName" placeholder="Full Name" maxlength="50" />
+        <input type="text" class="input-text full-width" id="txtDesignation" placeholder="Designation" maxlength="50" />
+    </div>
+    <div class="form-group">
+        <input type="text" class="input-text full-width" id="txtEmailId" placeholder="Email ID" maxlength="50" />
+        <input type="text" class="input-text full-width" id="txtWebsiteURL" placeholder="Website URL" maxlength="100" />
+    </div>
+    <div class="form-group">
+        <input type="text" class="input-text full-width" id="txtPhoneNumber" placeholder="Phone Number" maxlength="20" />
+        <input type="text" class="input-text full-width" id="txtFaxNumber" placeholder="Fax Number" maxlength="20" />
+    </div>
+    <div class="form-group">
+        Business Segments:
+        @foreach (var item in businessSegment)
+        {
+            <input type="radio" name="businesssegment" class="segment" value="@item.BusinessSegmentId" />@item.BusinessSegmentType
+        }
+    </div>
+
+    <div class="form-group">
+        Business Areas:
+        @foreach (var item in businessArea)
+        {
+            var text = "";
+            if (item.BusinessAreaTypeId == 1)
+            {
+                text = "FTT";
+            }
+            else if (item.BusinessAreaTypeId == 2)
+            {
+                text = "Leisure";
+            }
+            else if (item.BusinessAreaTypeId == 3)
+            {
+                text = "Series";
+            }
+            else if (item.BusinessAreaTypeId == 4)
+            {
+                text = "Mice";
+            }
+            else
+            {
+                text = "Other";
+            }
+
+            <input type="checkbox" class="businessarea @text" id="@item.BusinessAreaTypeId" name="@item.BusinessAreaType" value="@item.BusinessAreaTypeId">@item.BusinessAreaType
+        }
+
+
+
+    </div>
+    <div id="divFTT"></div>
+    <div id="divLeisure"></div>
+    <div id="divGroupSeries"></div>
+    <div id="divMice"></div>
+    <div id="divOther"></div>
+    <br />
+
+    <div class="form-group">
+        Modules Interested In:
+        <input type="checkbox" name="vehicle1">FIT
+        <input type="checkbox" name="vehicle2">Group
+    </div>
+
+
+    <center><button type="submit" class="full-width btn-medium" id="btnSubmit">SIGNUP</button></center>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function validateEmail(sEmail) {
+            var filter = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            if (filter.test(sEmail)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+
+        $(".businessarea").click(function (e) {
+            var id = e.currentTarget.id;
+            var fttchecked = e.currentTarget.checked;
+            var businessArea = "";
+            if (id == 1) {
+                if (fttchecked) {
+                    businessArea = "FTT";
+                    var res = GenerateBusinessContact(id, businessArea);
+                    $("#divFTT").append(res);
+                }
+                else {
+                    $("#divFTT").empty();
+                }
+            }
+            else if (id == 2) {
+                if (fttchecked) {
+                    businessArea = "Leisure";
+                    var res = GenerateBusinessContact(id, businessArea);
+                    $("#divLeisure").append(res);
+                }
+                else {
+                    $("#divLeisure").empty();
+                }
+            }
+            else if (id == 3) {
+                if (fttchecked) {
+                    businessArea = "Series";
+                    var res = GenerateBusinessContact(id, businessArea);
+                    $("#divGroupSeries").append(res);
+                }
+                else {
+                    $("#divGroupSeries").empty();
+                }
+            }
+            else if (id == 4) {
+                if (fttchecked) {
+                    businessArea = "Mice";
+                    var res = GenerateBusinessContact(id, businessArea);
+                    $("#divMice").append(res);
+                }
+                else {
+                    $("#divMice").empty();
+                }
+            }
+            else if (id == 5) {
+                if (fttchecked) {
+                    businessArea = "Other";
+                    var res = GenerateBusinessContact(id, businessArea);
+                    $("#divOther").append(res);
+                }
+                else {
+                    $("#divOther").empty();
+                }
+            }
+        });
+
+        function GenerateBusinessContact(id, businessArea) {
+
+            var row = "";
+            row += "<div class='form-group'>" + businessArea + " <br /><input type='text' class='input-text full-width' placeholder='Full Name' id='" + businessArea + '_FullName_' + id + "' maxlength='50'/></div>";
+            row += "<div class='form-group'><input type='text' class='input-text full-width' placeholder='Designation' id='" + businessArea + '_Designation_' + id + "'  maxlength='50'/></div>";
+            row += "<div class='form-group'><input type='text' class='input-text full-width' placeholder='Email Id' id='" + businessArea + '_EmailId_' + id + "' maxlength='50' /></div>";
+            row += "<div class='form-group'><input type='text' class='input-text full-width' placeholder='Phone Number' id='" + businessArea + '_PhoneNo_' + id + "' maxlength='20' /></div>";
+            row += "<div class='form-group'><input type='text' class='input-text full-width' placeholder='Fax Number' id='" + businessArea + '_FaxNo_' + id + "'  maxlength='20'/></div>";
+
+            return row;
+        }
+
+        $("#btnSubmit").click(function (e) {
+            var urlLink = '@Url.Action("Create", "Profile")';
+
+            if ($("#txtCompanyName").val() == "") {
+                alert("Please enter Company Name");
+                return false;
+            }
+            if ($("#txtCompanyType").val() == "") {
+                alert("Please enter Company Type");
+                $("#txtCompanyType").focus();
+                return false;
+            }
+            
+            if ($("#ddlNoofEmployee").val() == "0") {
+                alert("Please enter No of Employees");
+                $("#ddlNoofEmployee").focus()
+                return false;
+            }
+            if ($("#txtAddress").val() == "") {
+                alert("Please enter Address");
+                $("#txtAddress").focus();
+                return false;
+            }
+            if ($("#txtPostalCode").val() == "") {
+                alert("Please enter Postal Code");
+                $("#txtPostalCode").focus();
+                return false;
+            }
+            if ($("#txtFullName").val() == "") {
+                alert("Please enter Full Name");
+                $("#txtFullName").focus();
+                return false;
+            }
+
+            if ($("#txtEmailId").val() == "") {
+                alert("Please enter Email ID");
+                $("#txtEmailId").focus();
+                return false;
+            }
+
+            if ($("#txtEmailId").val() != "" && !validateEmail($("#txtEmailId").val())) {
+                alert("Please enter valid Email Id");
+                $("#txtEmailId").focus();
+                return false;
+            };
+
+            if ($("#txtPhoneNumber").val() == "") {
+                alert("Please enter Phone No");
+                $("#txtPhoneNumber").focus();
+                return false;
+            }
+            var businesssegment = $('input[name=businesssegment]:checked').val();
+
+            if (businesssegment == null || businesssegment == "") {
+                alert("Please select Business Segment");
+                return false;
+            };
+
+            var contactCollection = new Array();
+
+            //FTT
+            var fttchecked = $('.FTT').prop("checked");
+            if (fttchecked) {
+                var businessAreaTypeId = $('.FTT').prop("id");
+
+                var inputValues = $('#divFTT :input').map(function () {
+                    var type = $(this).prop("type");
+
+                    // Get values
+                    if (type == "text") {
+                        return $(this).val();
+                    }
+                })
+
+                if (inputValues[0] != "") {
+                    alert("Please enter Contact Name");
+                    return false;
+                }
+                
+                if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
+                    alert("Please enter valid Email Id");
+                    return false;
+                }
+                if (inputValues[3] != "") {
+                    alert("Please enter Phone No");
+                    return false;
+                }
+
+                var addJson = { "BusinessAreaTypeId": businessAreaTypeId, "ContactName": inputValues[0], "Designation": inputValues[1], "EmailId": inputValues[2], "PhoneNo": inputValues[3], "FaxNo": inputValues[4] };
+                contactCollection.push(addJson);
+            }
+
+            //Leisure
+            var leisurechecked = $('.Leisure').prop("checked");
+            if (leisurechecked) {
+                var businessAreaTypeId = $('.Leisure').prop("id");
+
+                var inputValues = $('#divLeisure :input').map(function () {
+                    var type = $(this).prop("type");
+
+                    // Get values
+                    if (type == "text") {
+                        return $(this).val();
+                    }
+                })
+                if (inputValues[0] != "") {
+                    alert("Please enter Contact Name");
+                    return false;
+                }
+
+                if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
+                    alert("Please enter valid Email Id");
+                    return false;
+                }
+                if (inputValues[3] != "") {
+                    alert("Please enter Phone No");
+                    return false;
+                }
+
+                var addJson = { "BusinessAreaTypeId": businessAreaTypeId, "ContactName": inputValues[0], "Designation": inputValues[1], "EmailId": inputValues[2], "PhoneNo": inputValues[3], "FaxNo": inputValues[4] };
+                contactCollection.push(addJson);
+            }
+
+            //Series
+            var serieschecked = $('.Series').prop("checked");
+            if (serieschecked) {
+                var businessAreaTypeId = $('.Series').prop("id");
+
+                var inputValues = $('#divGroupSeries :input').map(function () {
+                    var type = $(this).prop("type");
+
+                    // Get values
+                    if (type == "text") {
+                        return $(this).val();
+                    }
+                });
+                if (inputValues[0] != "") {
+                    alert("Please enter Contact Name");
+                    return false;
+                }
+
+                if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
+                    alert("Please enter valid Email Id");
+                    return false;
+                }
+                if (inputValues[3] != "") {
+                    alert("Please enter Phone No");
+                    return false;
+                }
+
+                var addJson = { "BusinessAreaTypeId": businessAreaTypeId, "ContactName": inputValues[0], "Designation": inputValues[1], "EmailId": inputValues[2], "PhoneNo": inputValues[3], "FaxNo": inputValues[4] };
+                contactCollection.push(addJson);
+            }
+
+            //Mice
+            var micechecked = $('.Mice').prop("checked");
+            if (micechecked) {
+                var businessAreaTypeId = $('.Mice').prop("id");
+
+                var inputValues = $('#divMice :input').map(function () {
+                    var type = $(this).prop("type");
+
+                    // Get values
+                    if (type == "text") {
+                        return $(this).val();
+                    }
+                });
+                if (inputValues[0] != "") {
+                    alert("Please enter Contact Name");
+                    return false;
+                }
+
+                if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
+                    alert("Please enter valid Email Id");
+                    return false;
+                }
+                if (inputValues[3] != "") {
+                    alert("Please enter Phone No");
+                    return false;
+                }
+
+                var addJson = { "BusinessAreaTypeId": businessAreaTypeId, "ContactName": inputValues[0], "Designation": inputValues[1], "EmailId": inputValues[2], "PhoneNo": inputValues[3], "FaxNo": inputValues[4] };
+                contactCollection.push(addJson);
+            }
+
+            //Other
+            var otherchecked = $('.Other').prop("checked");
+            if (otherchecked) {
+                var businessAreaTypeId = $('.Other').prop("id");
+
+                var inputValues = $('#divOther :input').map(function () {
+                    var type = $(this).prop("type");
+
+                    // Get values
+                    if (type == "text") {
+                        return $(this).val();
+                    }
+                });
+                if (inputValues[0] != "") {
+                    alert("Please enter Contact Name");
+                    return false;
+                }
+
+                if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
+                    alert("Please enter valid Email Id");
+                    return false;
+                }
+                if (inputValues[3] != "") {
+                    alert("Please enter Phone No");
+                    return false;
+                }
+
+                var addJson = { "BusinessAreaTypeId": businessAreaTypeId, "ContactName": inputValues[0], "Designation": inputValues[1], "EmailId": inputValues[2], "PhoneNo": inputValues[3], "FaxNo": inputValues[4] };
+                contactCollection.push(addJson);
+            }
+
+            var formData = JSON.stringify({
+                "ClientName": $("#txtCompanyName").val(),
+                "CompanyType": $("#txtCompanyType").val(),
+                "FoundationYear": $("#txtYearofFoundation").val(),
+                "TotalEmployees": $("#ddlNoofEmployee").val(),
+                "City": $("#ddlCountry").val(),
+                "Address": $("#txtAddress").val(),
+                "PostCode": $("#txtPostalCode").val(),
+                "ContactName": $("#txtFullName").val(),
+                "Designation": $("#txtDesignation").val(),
+                "PhoneNo": $("#txtPhoneNumber").val(),
+                "FaxNo": $("#txtFaxNumber").val(),
+                "EmailId": $("#txtEmailId").val(),
+                "WebSiteUrl": $("#txtWebsiteURL").val(),
+                "BusinessSegmentId": businesssegment,
+                "lstClientContact": contactCollection
+            });
+
+            $.ajax({
+                contentType: "application/json",
+                type: 'POST',
+                url: urlLink,
+                data: formData,
+                dataType: "json",
+                async: true,
+                success: function (d) {
+                    alert("Registered Successfully");
+                    window.location.href = '@Url.Action("Create", "Profile")';
+                },
+                error: function (ex) {
+                    alert("Failed to Registered");
+                    window.location.href = '@Url.Action("Create", "Profile")';
+                }
+            });
+
+        });
+
+    });
+</script>

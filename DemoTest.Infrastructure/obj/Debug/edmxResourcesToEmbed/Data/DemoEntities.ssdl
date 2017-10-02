@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EPTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BusinessAreaTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessAreaType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedAt" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedAt" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="BusinessSegmentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SegmentType" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedAt" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedAt" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ClientContacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientId" Type="bigint" Nullable="false" />
+    <Property Name="BusinessAreaTypeId" Type="int" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FaxNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime2" Precision="7" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CompanyType" Type="nvarchar" MaxLength="100" />
+    <Property Name="FoundationYear" Type="nvarchar" MaxLength="4" />
+    <Property Name="TotalEmployees" Type="nvarchar" MaxLength="12" />
+    <Property Name="City" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FaxNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WebSiteUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="BusinessSegmentId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LogoPath" Type="nvarchar" MaxLength="300" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EPTestModelStoreContainer">
+    <EntitySet Name="BusinessAreaTypes" EntityType="Self.BusinessAreaTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessSegmentTypes" EntityType="Self.BusinessSegmentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContacts" EntityType="Self.ClientContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientMaster" EntityType="Self.ClientMaster" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
