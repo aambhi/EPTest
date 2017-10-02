@@ -24,7 +24,7 @@ namespace DemoTest.Controllers
         private void GetMasterData()
         {
             var result = _iProfileRepository.GetMasterData();
-
+            //test
             if (result != null && result.Count > 0)
             {
                 ViewBag.GetBusinessSegment = (List<BusinessSegment>)result[0];
