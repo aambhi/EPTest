@@ -11,8 +11,10 @@ namespace DemoTest.Utilities
         public static void SendEmail(string fromAddress, string toAddress, string attachmentFilePath, string subject, string userName)
         {
             string SMTPServer = ConfigurationManager.AppSettings["SMTPServer"];
+            string SMTPUserName = ConfigurationManager.AppSettings["SMTPUserName"];
             string SMTPPassword = ConfigurationManager.AppSettings["SMTPPassword"];
             string SMTPPort = ConfigurationManager.AppSettings["SMTPPort"];
+
             int portNo = 0;
             if (!string.IsNullOrEmpty(SMTPPort))
                 portNo = Convert.ToInt32(SMTPPort);
@@ -21,19 +23,16 @@ namespace DemoTest.Utilities
             {
                 MailMessage mailObj = new MailMessage();
                 mailObj.From = new MailAddress(fromAddress);
-                var toAddressList = toAddress.Split(';');
-                foreach (string bccEmailId in toAddressList)
-                {
-                    mailObj.Bcc.Add(new MailAddress(bccEmailId)); //Adding Multiple BCC email Id
-                }
-                //mailObj.To.Add(toAddress);
+                //var toAddressList = toAddress.Split(';');
+                //foreach (string bccEmailId in toAddressList)
+                //{
+                //    mailObj.Bcc.Add(new MailAddress(bccEmailId)); //Adding Multiple BCC email Id
+                //}
+                mailObj.To.Add(toAddress);
                 SmtpClient smtpClient = new SmtpClient(SMTPServer, portNo);
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new System.Net.NetworkCredential(fromAddress, SMTPPassword);
-                Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(attachmentFilePath);
-                mailObj.Attachments.Add(attachment);
+                smtpClient.Credentials = new System.Net.NetworkCredential(SMTPUserName, SMTPPassword);
                 mailObj.IsBodyHtml = true;
                 mailObj.Subject = subject;
                 string bodytemplate = string.Empty;

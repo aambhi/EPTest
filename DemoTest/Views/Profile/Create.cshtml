@@ -260,7 +260,7 @@
                 $("#txtCompanyType").focus();
                 return false;
             }
-            
+
             if ($("#ddlNoofEmployee").val() == "0") {
                 alert("Please enter No of Employees");
                 $("#ddlNoofEmployee").focus()
@@ -322,17 +322,22 @@
                     }
                 })
 
-                if (inputValues[0] != "") {
-                    alert("Please enter Contact Name");
+                if (inputValues[0] == "") {
+                    alert("Please enter FIT Full Name");
                     return false;
                 }
-                
+
+                if (inputValues[2] == "") {
+                    alert("Please enter FIT Email ID");
+                    return false;
+                }
+
                 if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
-                    alert("Please enter valid Email Id");
+                    alert("Please enter valid FIT Email Id");
                     return false;
                 }
-                if (inputValues[3] != "") {
-                    alert("Please enter Phone No");
+                if (inputValues[3] == "") {
+                    alert("Please enter FIT Phone No");
                     return false;
                 }
 
@@ -353,17 +358,21 @@
                         return $(this).val();
                     }
                 })
-                if (inputValues[0] != "") {
-                    alert("Please enter Contact Name");
+                if (inputValues[0] == "") {
+                    alert("Please enter Leisure Full Name");
+                    return false;
+                }
+                if (inputValues[2] == "") {
+                    alert("Please enter Leisure Email ID");
                     return false;
                 }
 
                 if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
-                    alert("Please enter valid Email Id");
+                    alert("Please enter valid Leisure Email Id");
                     return false;
                 }
-                if (inputValues[3] != "") {
-                    alert("Please enter Phone No");
+                if (inputValues[3] == "") {
+                    alert("Please enter Leisure Phone No");
                     return false;
                 }
 
@@ -384,17 +393,22 @@
                         return $(this).val();
                     }
                 });
-                if (inputValues[0] != "") {
-                    alert("Please enter Contact Name");
+                if (inputValues[0] == "") {
+                    alert("Please enter Series Full Name");
+                    return false;
+                }
+
+                if (inputValues[2] == "") {
+                    alert("Please enter Series Email ID");
                     return false;
                 }
 
                 if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
-                    alert("Please enter valid Email Id");
+                    alert("Please enter valid Series Email Id");
                     return false;
                 }
-                if (inputValues[3] != "") {
-                    alert("Please enter Phone No");
+                if (inputValues[3] == "") {
+                    alert("Please enter Series Phone No");
                     return false;
                 }
 
@@ -415,17 +429,21 @@
                         return $(this).val();
                     }
                 });
-                if (inputValues[0] != "") {
-                    alert("Please enter Contact Name");
+                if (inputValues[0] == "") {
+                    alert("Please enter Mice Full Name");
+                    return false;
+                }
+                if (inputValues[2] == "") {
+                    alert("Please enter Mice Email ID");
                     return false;
                 }
 
                 if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
-                    alert("Please enter valid Email Id");
+                    alert("Please enter valid Mice Email Id");
                     return false;
                 }
-                if (inputValues[3] != "") {
-                    alert("Please enter Phone No");
+                if (inputValues[3] == "") {
+                    alert("Please enter Mice Phone No");
                     return false;
                 }
 
@@ -446,17 +464,20 @@
                         return $(this).val();
                     }
                 });
-                if (inputValues[0] != "") {
-                    alert("Please enter Contact Name");
+                if (inputValues[0] == "") {
+                    alert("Please enter Other Full Name");
                     return false;
                 }
-
+                if (inputValues[2] == "") {
+                    alert("Please enter Other Email ID");
+                    return false;
+                }
                 if (inputValues[2] != "" && !validateEmail(inputValues[2])) {
-                    alert("Please enter valid Email Id");
+                    alert("Please enter valid Other Email Id");
                     return false;
                 }
-                if (inputValues[3] != "") {
-                    alert("Please enter Phone No");
+                if (inputValues[3] == "") {
+                    alert("Please enter Other Phone No");
                     return false;
                 }
 
@@ -490,11 +511,11 @@
                 dataType: "json",
                 async: true,
                 success: function (d) {
-                    alert("Registered Successfully");
+                    alert(d);
                     window.location.href = '@Url.Action("Create", "Profile")';
                 },
                 error: function (ex) {
-                    alert("Failed to Registered");
+                    alert(d);
                     window.location.href = '@Url.Action("Create", "Profile")';
                 }
             });
