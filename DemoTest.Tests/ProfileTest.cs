@@ -1,9 +1,7 @@
 ﻿using DemoTest.Controllers;
 using DemoTest.Core.Model;
-using DemoTest.Core.RepositoryInterface;
 using DemoTest.Infrastructure.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -29,7 +27,7 @@ namespace DemoTest.Tests
                 var profile = new Profile { ClientName = "Test1", CompanyType = "Type1", FoundationYear = "1995", TotalEmployees = "3", City = "Andheri", Address = "Vile Parle", PostCode = "400099", ContactName = "mock test 1", Designation = "engineer moq", EmailId = "ambikaprasad.gupta@northgateps.com", PhoneNo = "9987848971", FaxNo = "123456789", WebSiteUrl = "test.com", BusinessSegmentId = 2, lstClientContact = lstContact };
 
                 //Act
-                var result = (System.Web.Mvc.JsonResult)_controller.Create(profile);
+                var result = (JsonResult)_controller.Create(profile);
 
                 //Assert
                 Assert.AreEqual("Successfully Registered. Email Sent", result.Data);

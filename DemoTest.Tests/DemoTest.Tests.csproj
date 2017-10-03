@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\MocProfileRepository.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ProfileTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

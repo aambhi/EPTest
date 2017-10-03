@@ -2,3 +2,7 @@ F:\Project Works\Test Project\DemoTest\DemoTest.Core\bin\Debug\DemoTest.Core.dll
 F:\Project Works\Test Project\DemoTest\DemoTest.Core\bin\Debug\DemoTest.Core.pdb
 F:\Project Works\Test Project\DemoTest\DemoTest.Core\obj\Debug\DemoTest.Core.dll
 F:\Project Works\Test Project\DemoTest\DemoTest.Core\obj\Debug\DemoTest.Core.pdb
+F:\Project Works\Test Project\git.DemoTest\DemoTest.Core\bin\Debug\DemoTest.Core.dll
+F:\Project Works\Test Project\git.DemoTest\DemoTest.Core\bin\Debug\DemoTest.Core.pdb
+F:\Project Works\Test Project\git.DemoTest\DemoTest.Core\obj\Debug\DemoTest.Core.dll
+F:\Project Works\Test Project\git.DemoTest\DemoTest.Core\obj\Debug\DemoTest.Core.pdb

@@ -11,7 +11,7 @@ namespace DemoTest.Utilities
         public static void SendEmail(string fromAddress, string toAddress, string attachmentFilePath, string subject, string userName)
         {
             string SMTPServer = ConfigurationManager.AppSettings["SMTPServer"];
-            string SMTPUserName = ConfigurationManager.AppSettings["SMTPUserName"];
+            string SMTPUserName = ConfigurationManager.AppSettings["FromEmailAddress"];
             string SMTPPassword = ConfigurationManager.AppSettings["SMTPPassword"];
             string SMTPPort = ConfigurationManager.AppSettings["SMTPPort"];
 
