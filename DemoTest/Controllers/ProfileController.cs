@@ -20,7 +20,7 @@ namespace DemoTest.Controllers
         }
 
         #region Public Method
-
+        [HttpGet]
         public ActionResult Create()
         {
             GetMasterData();
@@ -35,14 +35,10 @@ namespace DemoTest.Controllers
             {
                 if (SendEmailToUser(profile.EmailId))
                 {
-                    return Json("Successfully Registered", JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Json("Successfully Registered. Email not sent", JsonRequestBehavior.AllowGet);
+                    return Json("Successfully Registered. Email Sent", JsonRequestBehavior.AllowGet);
                 }
             }
-            return Json("Successfully Registered", JsonRequestBehavior.AllowGet);
+            return Json("Successfully Registered. Email not sent", JsonRequestBehavior.AllowGet);
         }
 
         #endregion
